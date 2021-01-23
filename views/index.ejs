@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="text-center">Stocks</h1>
+    <p class="text-center">
+      <a href="/dashboard/stocks">Being Tracked</a>
+    </p>
+    <% stocks.forEach(function(stocks) { %>
+      <div>
+        <h2><%= stocks.symbol %></h2>
+        <form method="POST" action="/dashboard/stocks">
+          <input hidden type="text" name="name" value="<%= stocks.symbol %>">
+          <button type="submit">Add Stock to Tracker</button>
+        </form>
+      </div>
+    <% }); %>
+</div>
+  
