@@ -2,21 +2,21 @@
   "development": {
     "username": "postgres",
     "password": "Indiekeane2@",
-    "database": "database_development",
+    "database": "proj_two_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "Indiekeane2@",
-    "database": "database_test",
+    "database": "proj_two__test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": "Indiekeane2@",
-    "database": "database_production",
+    "database": "proj_two_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
