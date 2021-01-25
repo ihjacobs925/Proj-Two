@@ -14,7 +14,7 @@ app.use('/dashboard/stocks', require('./routes/stocks'));
 
 
 app.get('/', (req, res) => {
-    res.send('This is the Sign Up and Login Page')
+    res.render('index');
 });
 
 const server = app.listen(process.env.PORT || 4000, () => console.log(`You're listening to the smooth sounds of port ${process.env.PORT || 4000}`));

@@ -1,14 +1,23 @@
-const { default: axios } = require('axios');
+const axios = require('axios');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
    // res.send('This is where the user can scroll through, search for and save stocks to track.')
-   let stocksUrl = `https://cloud.iexapis.com/beta/ref-data/symbols?token=pk_87781e053e0a4f94aeb8cecd7ec0fd7e`;
+   let stocksUrl = `https://cloud.iexapis.com/beta/ref-data/exchange/NYS/symbols?token=${process.env.IEXCLOUD_API_TOKEN}`;
    axios.get(stocksUrl).then(apiResponse => {
-       console.log(apiResponse);
-      // let stocks = apiResponse.data.results;
-      // res.render('index', { stocks: stocks});
+      let stock = apiResponse.data.results;
+      res.render('stocks', { stocks: stock });
+      //res.render('stocks', {stocks: apiResponde.data.Search})
+      //let stocks = apiResponse.data.name;
+      //res.render('index', { stocks: stocks });
+   })
+});
+
+router.get('/', (req, res) => {
+   let stockQueryUrl = `https://cloud.iexapis.com/beta/ref-data/exchange/NYS/symbols?s=${req.query.searchTerm}&token=${process.env.IEXCLOUD_API_TOKEN}`;
+   axios.get(stockQueryUrl).then(apiResponse => {
+      console.log(apiResponse);
    })
 });
 
