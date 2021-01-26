@@ -17,7 +17,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-   let stockQueryUrl = `https://cloud.iexapis.com/beta/ref-data/exchange/NYS/symbols?search/${req.query.name}&token=${process.env.IEXCLOUD_API_TOKEN}`;
+   console.log(req.query);
+   let stockQueryUrl = `https://cloud.iexapis.com/beta/ref-data/exchange/NYS/symbols?search/${req.query.symbol}&token=${process.env.IEXCLOUD_API_TOKEN}`;
    axios.get(stockQueryUrl).then(apiResponse => {
       let searchStock = apiResponse.data;
 
@@ -32,7 +33,9 @@ router.post('/', (req, res) => {
           name: req.body.name,
           symbol: req.body.symbol
        }
-    }).then()
+    }).then(([stock, created]) => {
+
+    })
 })
 
 module.exports = router;

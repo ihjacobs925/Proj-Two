@@ -14,21 +14,6 @@ module.exports = {
       symbol: {
         type: Sequelize.STRING
       },
-      currentValue: {
-        type: Sequelize.INTEGER
-      },
-      closingValue: {
-        type: Sequelize.INTEGER
-      },
-      threeMonthValue: {
-        type: Sequelize.INTEGER
-      },
-      sixMonthValue: {
-        type: Sequelize.INTEGER
-      },
-      oneYearValue: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
