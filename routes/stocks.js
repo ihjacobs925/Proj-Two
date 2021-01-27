@@ -28,14 +28,15 @@ router.get('/', (req, res) => {
 
 //POST /dashboard/stocks - receive the name of a company and add it to the database
 router.post('/', (req, res) => {
+   console.log(req);
     db.stock.findOrCreate({
        where: {
           name: req.body.name,
           symbol: req.body.symbol
        }
     }).then(([stock, created]) => {
-
-    })
+      console.log(stock);
+    }).catch(err => console.log(err));
 })
 
 module.exports = router;

@@ -11,7 +11,7 @@
       <h2><%= stocks.symbol %> <%= stocks.name %></h2>
       <form method="POST" action="/dashboard/stocks">
         <input hidden type="text" name="name" value="<%= stocks.name %>">
-        <input hidden type="text" name="name" value="<%= stocks.symbol %>">
+        <input hidden type="text" name="symbol" value="<%= stocks.symbol %>">
         <button type="submit">Add Stock to Tracker</button>
       </form>
     </div>
