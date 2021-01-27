@@ -17,6 +17,20 @@ router.get('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
+   // res.send('This is where the user can scroll through, search for and save stocks to track.')
+   let priceUrl = `https://cloud.iexapis.com/beta/stock/symbol/price?token=${process.env.IEXCLOUD_API_TOKEN}`;
+   axios.get(priceUrl).then(apiResponse => {
+      console.log(apiResponse.data)
+     // let stock = apiResponse.data;
+      //console.log(stock);
+     // res.render('stocks', { stocks: stock });
+      //res.render('stocks', {stocks: apiResponde.data.Search})
+      //let stocks = apiResponse.data.name;
+      //res.render('index', { stocks: stocks });
+   })
+});
+
+router.get('/', (req, res) => {
    console.log(req.query);
    let stockQueryUrl = `https://cloud.iexapis.com/beta/ref-data/exchange/NYS/symbols?search/${req.query.symbol}&token=${process.env.IEXCLOUD_API_TOKEN}`;
    axios.get(stockQueryUrl).then(apiResponse => {
