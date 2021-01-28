@@ -13,18 +13,17 @@ db.user.findOrCreate({
             symbol: 'IHJ'
         }
     })
-})
+
 .then(([stock, created]) => {
-   // console.log(stock);
    user.addStock(stock).then(relation => {
        console.log(`${stock.name} added to ${user.name}`);
        console.log(relation);
-   })
+   }).catch(err => console.log(err));
 })
 
-db.stock.findOne({
-    include: [db.user]
-})
-.then(stock => {
-    console.log(`${stock.user.length} ${stock.name, stock.symbol}`)
+// db.stock.findOne({
+//     include: [db.user]
+// })
+// .then(stock => {
+//     console.log(`${stock.user.length} ${stock.name, stock.symbol}`)
 })

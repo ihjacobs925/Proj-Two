@@ -15,8 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
 app.use(helmet());
-app.use('/dashboard' , require('./routes/dashboard'));
-app.use('/stocks', require('./routes/stocks'));
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -35,6 +33,7 @@ app.use((req, res, next) => {
   console.log(alerts);
   res.locals.alerts = alerts;
   res.locals.currentUser = req.user;
+  console.log(req.user);
   next();
 });
 
@@ -42,11 +41,13 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
+app.get('/dashboard', isLoggedIn, (req, res) => {
+  res.render('dashboard');
 });
 
 app.use('/auth', require('./routes/auth'));
+app.use('/dashboard' , require('./routes/dashboard'));
+app.use('/stocks', require('./routes/stocks'));
 // app.use('/dino', isLoggedIn, require('./routes/dinos'));
 
 var server = app.listen(process.env.PORT || 4000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 4000}🎧`));
