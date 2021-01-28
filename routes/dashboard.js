@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const db = require('../models');
+const isLoggedIn = require('../middleware/isLoggedIn');
 
-router.get('/', (req, res) => {
-    res.send('This is the User Dashboard')
+// /dashboard
+router.get('/', isLoggedIn, (req, res) => {
+    res.send('dashboard')
 });
 
 router.post('/stocks', (req, res) => {
