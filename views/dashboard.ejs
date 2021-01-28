@@ -1,11 +1,18 @@
-<h2>Dashboard</h2>
-<h2>NYSE Stocks</h2>
+<h1>Dashboard</h1>
 
 <h3>Welcome to your Dashboard <%= currentUser.name %></h3>
 <% console.log(currentUser) %>
 
-<form method="POST" action="/dashboard/<%= stocks.name %>?_method=DELETE">
-    <input hidden type="text" name="name" value="<%= stocks.name %>">
-    <input hidden type="text" name="symbol" value="<%= stocks.symbol %>">
+
+<%getStocks.forEach(stock => { %>
+    <div>
+        <a href="/dashboard/<%= stock.name %><%= stock.symbol %>"></a>
+    </div>
+
+
+<form method="POST" action="/dashboard/<%= stock.name %><%= stock.symbol %>?_method=DELETE">
+    <input hidden type="text" name="name" value="<%= stock.name %>">
+    <input hidden type="text" name="symbol" value="<%= stock.symbol %>">
     <button type="submit">Delete from Tracker</button>
 </form>
+<% }) %>

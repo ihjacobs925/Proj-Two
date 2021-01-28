@@ -3,24 +3,41 @@ const router = express.Router();
 const axios = require('axios');
 const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
+const methodOverride = require('method-override');
 
-// /dashboard
+//dashboard
 router.get('/', isLoggedIn, (req, res) => {
-    res.send('dashboard')
-});
+    //const getStocks = 
+    db.stock.findAll()
+    .then((getStocks => {
+      console.log(getStocks, "dash 13");
+      res.render('dashboard', {getStocks: getStocks});
+    })).catch(err => console.log(err));
+})
 
 router.post('/stocks', (req, res) => {
-    console.log(req.body);
-     db.stock.findOrCreate({
-        where: {
-           name: req.body.name,
-           symbol: req.body.symbol
-        }
-     }).then(([stock, created]) => {
-        console.log(stock)
-        res.redirect('/');
+   db.user.findOrCreate({
+      where: {
+          id: 1,
+      }
+  })
+  .then(([user, created]) => {
+      console.log(user, "dash 25");
+      return db.stock.findOrCreate({
+          where: {
+              name: req.body.name,
+              symbol: req.body.symbol
+          }
+      })
+     .then(([stock, created]) => {
+     user.addStock(stock).then(relation => {
+         console.log(`${stock.name} added to ${user.name}, dash 34`);
+         console.log(relation, "dash 35");
+         res.redirect('/dashboard');
      }).catch(err => console.log(err));
- })
+    })
+  })
+})
 
  // DELETE ROUTE
 // router.delete('/:id', (req, res) => {

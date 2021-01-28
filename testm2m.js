@@ -6,7 +6,7 @@ db.user.findOrCreate({
     }
 })
 .then(([user, created]) => {
-    console.log(user);
+    console.log(user, "test 9");
     return db.stock.findOrCreate({
         where: {
             name: 'Ian',
@@ -16,8 +16,8 @@ db.user.findOrCreate({
 
 .then(([stock, created]) => {
    user.addStock(stock).then(relation => {
-       console.log(`${stock.name} added to ${user.name}`);
-       console.log(relation);
+       console.log(`${stock.name} added to ${user.name} test 19`);
+       console.log(relation, "test 20");
    }).catch(err => console.log(err));
   })
 })

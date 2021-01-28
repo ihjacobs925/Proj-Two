@@ -23,7 +23,7 @@ router.post('/signup', (req, res, next) => {
   }).then(([user, created]) => {
     // if the user WAS created
     if (created) {
-      console.log(`${user.name} was created!`);
+      console.log(`${user.name} was created! auth 26`);
       // authenticat and redirect to homepage or profile
       passport.authenticate('local', {
         successRedirect: '/',

@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
    // res.send('This is where the user can scroll through, search for and save stocks to track.')
    let priceUrl = `https://cloud.iexapis.com/beta/stock/symbol/price?token=${process.env.IEXCLOUD_API_TOKEN}`;
    axios.get(priceUrl).then(apiResponse => {
-      console.log(apiResponse.data)
+      console.log(apiResponse.data, "stocks 23")
      // let stock = apiResponse.data;
       //console.log(stock);
      // res.render('stocks', { stocks: stock });
@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-   console.log(req.query);
+   console.log(req.query, "stocks 34");
    let stockQueryUrl = `https://cloud.iexapis.com/beta/ref-data/exchange/NYS/symbols?search/${req.query.symbol}&token=${process.env.IEXCLOUD_API_TOKEN}`;
    axios.get(stockQueryUrl).then(apiResponse => {
       let searchStock = apiResponse.data;
@@ -42,14 +42,14 @@ router.get('/', (req, res) => {
 
 //POST /dashboard/stocks - receive the name of a company and add it to the database
 router.post('/', (req, res) => {
-   console.log(req);
+   //console.log(req, "stocks 45");
     db.stock.findOrCreate({
        where: {
           name: req.body.name,
           symbol: req.body.symbol
        }
     }).then(([stock, created]) => {
-      console.log(stock);
+      console.log(stock, "stocks 52");
     }).catch(err => console.log(err));
 })
 

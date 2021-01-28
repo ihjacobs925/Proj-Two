@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const helmet = require('helmet');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const methodOverride = require('method-override');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -30,10 +31,10 @@ app.use(flash());
 // Write Custom Middleware to access the user on every response
 app.use((req, res, next) => {
   let alerts = req.flash();
-  console.log(alerts);
+  //console.log(alerts, "index 34"); 
   res.locals.alerts = alerts;
   res.locals.currentUser = req.user;
-  console.log(req.user);
+  //console.log(req.user, "index, 37");
   next();
 });
 
@@ -41,9 +42,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/dashboard', isLoggedIn, (req, res) => {
-  res.render('dashboard');
-});
+// app.get('/dashboard', isLoggedIn, (req, res) => {
+//   res.render('dashboard');
+// });
 
 app.use('/auth', require('./routes/auth'));
 app.use('/dashboard' , require('./routes/dashboard'));
