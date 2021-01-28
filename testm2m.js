@@ -19,6 +19,7 @@ db.user.findOrCreate({
        console.log(`${stock.name} added to ${user.name}`);
        console.log(relation);
    }).catch(err => console.log(err));
+  })
 })
 
 // db.stock.findOne({
@@ -26,4 +27,4 @@ db.user.findOrCreate({
 // })
 // .then(stock => {
 //     console.log(`${stock.user.length} ${stock.name, stock.symbol}`)
-})
+//})

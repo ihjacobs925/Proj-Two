@@ -16,12 +16,24 @@ router.post('/stocks', (req, res) => {
            name: req.body.name,
            symbol: req.body.symbol
         }
-        
      }).then(([stock, created]) => {
         console.log(stock)
         res.redirect('/');
      }).catch(err => console.log(err));
  })
+
+ // DELETE ROUTE
+// router.delete('/:id', (req, res) => {
+//    db.stocks.destroy({
+//     where: {
+//       name: req.params.id
+//     }
+//   }).then(response => {
+//     res.redirect('/dashboard')
+//   }).catch(err => {
+//     res.render('error')
+//   })
+// })
  
 
 module.exports = router;
