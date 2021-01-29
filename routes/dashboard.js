@@ -6,8 +6,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 const methodOverride = require('method-override');
 
 //dashboard
-router.get('/', isLoggedIn, (req, res) => {
-    //const getStocks = 
+router.get('/', isLoggedIn, (req, res) => { 
     db.stock.findAll()
     .then((getStocks) => {
       console.log(getStocks, "dash 13");
@@ -15,7 +14,7 @@ router.get('/', isLoggedIn, (req, res) => {
     }).catch(err => console.log(err));
 })
 
-router.post('/stocks', (req, res) => {
+router.post('/', (req, res) => {
    db.user.findOrCreate({
       where: {
           id: 1,
@@ -39,18 +38,18 @@ router.post('/stocks', (req, res) => {
   })
 })
 
- // DELETE ROUTE
-// router.delete('/:id', (req, res) => {
-//    db.stocks.destroy({
-//     where: {
-//       name: req.params.id
-//     }
-//   }).then(response => {
-//     res.redirect('/dashboard')
-//   }).catch(err => {
-//     res.render('error')
-//   })
-// })
+ //DELETE ROUTE
+ router.delete('/:id', (req, res) => {
+   db.stocks.destroy({
+    where: {
+      name: req.params.id
+    }
+  }).then(response => {
+    res.redirect('/dashboard')
+  }).catch(err => {
+    res.render('error')
+  })
+});
  
 
 module.exports = router;
