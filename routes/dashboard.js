@@ -9,10 +9,10 @@ const methodOverride = require('method-override');
 router.get('/', isLoggedIn, (req, res) => {
     //const getStocks = 
     db.stock.findAll()
-    .then((getStocks => {
+    .then((getStocks) => {
       console.log(getStocks, "dash 13");
       res.render('dashboard', {getStocks: getStocks});
-    })).catch(err => console.log(err));
+    }).catch(err => console.log(err));
 })
 
 router.post('/stocks', (req, res) => {

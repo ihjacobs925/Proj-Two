@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Stock Tracker</title>
+    <link rel="stylesheet" href="./public/style.css">
   </head>
   <body>
     <header>
+      <h1>Stock Tracker</h1>
       <nav>
         <ul>
           <% if (currentUser) { %>
@@ -21,7 +22,6 @@
         </ul>
       </nav>
     </header>
-    <h1>Authentication</h1>
     <%- include('./partials/alerts.ejs') %>
     <%- body %>
   </body>

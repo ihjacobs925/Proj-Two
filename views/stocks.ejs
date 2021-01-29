@@ -1,5 +1,4 @@
 <h2>NYSE Stocks</h2>
-<h2>Dashboard</h2>
     <form method="GET" action="/stocks">
         <input type="text" placeholder="Comp name or Symbol" name="searchTerm">
         <input type="submit" placeholder="Search">
@@ -9,7 +8,7 @@
   <% stocks.forEach(function(stocks) { %>
     <div>
       <h2><%= stocks.symbol %> <%= stocks.name %></h2>
-      <form method="POST" action="/dashboard">
+      <form class="stock_box" method="POST" action="/dashboard">
         <input hidden type="text" name="name" value="<%= stocks.name %>">
         <input hidden type="text" name="symbol" value="<%= stocks.symbol %>">
         <button type="submit">Add Stock to Tracker</button>
