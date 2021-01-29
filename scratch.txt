@@ -11,3 +11,4 @@ post vs get request?
 //models.user.belongsToMany(models.stock, {through: "usersStocks"}) usersId, stocksId
 
 sequelize model:create --name user --attributes email:string,name:string,password:string
+https://stocktrackerreddev14.herokuapp.com
