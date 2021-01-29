@@ -1,11 +1,11 @@
-<h1>Dashboard</h1>
+<h2 class="dashboard">Dashboard</h2>
 
 <h3>Welcome to your Dashboard <%= currentUser.name %>! This is where you can manage all of the stocks you have chosen to track.</h3>
 <% console.log(currentUser) %>
 
 
 <%getStocks.forEach(stock => { %>
-    <div>
+    <div class="stocks">
         <a href="/dashboard/<%= stock.name %><%= stock.symbol %>"><%= stock.name %> <%= stock.symbol %></a>
     </div>
 

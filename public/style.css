@@ -1,3 +1,19 @@
-h1 {
-    color: blue;
+.tracker {
+    text-align: center;
+}
+
+.dashboard {
+    text-align: center;
+}
+
+.NYSE {
+    text-align: center;
+}
+
+.search {
+    text-align: right;
+}
+
+.stocks {
+    border: solid black;
 }
