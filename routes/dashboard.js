@@ -40,17 +40,17 @@ router.post('/', (req, res) => {
 
  //DELETE ROUTE
  router.delete('/', (req, res) => {
-     console.log(req.body);
-   db.users_stocks.destroy({
+     console.log("@@@@@@@", req.body.name);
+   db.stock.destroy({
     where: {
-      id: req.body.id
+      name: req.body.name
     }
   }).then(response => {
-     // console.log(response);
+     console.log('I did it!');
     res.redirect('/dashboard')
   }).catch(err => {
       console.log(err);
-    res.render('error')
+    //res.render('error')
   })
 });
  

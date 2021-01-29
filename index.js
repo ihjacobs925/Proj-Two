@@ -15,6 +15,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+app.use(methodOverride('_method'));
 app.use(helmet());
 
 app.use(session({
