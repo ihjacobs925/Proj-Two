@@ -39,14 +39,17 @@ router.post('/', (req, res) => {
 })
 
  //DELETE ROUTE
- router.delete('/:id', (req, res) => {
-   db.stocks.destroy({
+ router.delete('/', (req, res) => {
+     console.log(req.body);
+   db.users_stocks.destroy({
     where: {
-      name: req.params.id
+      id: req.body.id
     }
   }).then(response => {
+     // console.log(response);
     res.redirect('/dashboard')
   }).catch(err => {
+      console.log(err);
     res.render('error')
   })
 });

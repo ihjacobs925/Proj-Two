@@ -10,7 +10,7 @@
     </div>
 
 
-<form method="POST" action="/dashboard/<%= stock.name %><%= stock.symbol %>?_method=DELETE">
+<form method="POST" action="/dashboard?_method=DELETE">
     <input hidden type="text" name="name" value="<%= stock.name %>">
     <input hidden type="text" name="symbol" value="<%= stock.symbol %>">
     <button type="submit">Delete from Tracker</button>
