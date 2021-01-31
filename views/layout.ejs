@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stock Tracker</title>
+    <link type="text/css" rel="stylesheet" href="/normalize.css" />
+    <link type="text/css" rel="stylesheet" href="/skeleton.css" />
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
-    <header>
+    <header class="row">
       <h1 class="tracker">Stock Tracker</h1>
-      <nav class="signlog">
-        <ul>
+      <nav>
+        <ul class="navbar">
           <% if (currentUser) { %>
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/dashboard">Dashboard</a></li>
@@ -22,7 +24,9 @@
         </ul>
       </nav>
     </header>
-    <%- include('./partials/alerts.ejs') %>
-    <%- body %>
+    <div class="wrapper">
+      <%- include('./partials/alerts.ejs') %>
+      <%- body %>
+    </div>
   </body>
 </html>

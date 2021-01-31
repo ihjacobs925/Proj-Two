@@ -6,9 +6,9 @@
 
 <div class="container">
   <% stocks.forEach(function(stocks) { %>
-    <div>
-      <h2 class="stocks"><%= stocks.symbol %> <%= stocks.name %></h2>
-      <form method="POST" action="/dashboard">
+    <div class="row">
+      <h4 class="stocks nine columns"><%= stocks.symbol %> <%= stocks.name %></h4>
+      <form class="three columns" method="POST" action="/dashboard">
         <input hidden type="text" name="name" value="<%= stocks.name %>">
         <input hidden type="text" name="symbol" value="<%= stocks.symbol %>">
         <button type="submit">Add Stock to Tracker</button>
